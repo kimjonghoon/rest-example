@@ -5,4 +5,4 @@ The example below does not use the database, so you can run it without any extra
 
 
 ### How to run
-Go to root directory and run mvn jetty:run and visit http://localhost:8080.
+Go to root directory and run **mvn jetty:run** and visit http://localhost:8080.
