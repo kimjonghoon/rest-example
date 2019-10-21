@@ -1,7 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="sf" %>
 <!DOCTYPE html>
 <html>
@@ -175,7 +173,7 @@ $(document).on('click', '#all-comments', function(e) {
 		var url = $form.attr("action");
 		$.ajax({
 			url: url,
-			type: 'POST',
+			type: 'PUT',
 			data: dataToBeSent,
 			success: function() {
 				displayComments();
@@ -197,7 +195,7 @@ $(document).on('click', '#all-comments', function(e) {
 		var dataToBeSent = $('#deleteCommentForm').serialize();
 		$.ajax({
 			url: url,
-			type: 'POST',
+			type: 'DELETE',
 			data: dataToBeSent,
 			success: function() {
 				displayComments();
@@ -235,10 +233,8 @@ $(document).on('click', '#all-comments', function(e) {
 
 <div id="form-group" style="display: none">
 	<sf:form id="deleteCommentForm" action="/comments/" method="delete">
-		<input type="hidden" name="_method" value="DELETE" />
 	</sf:form>
 	<sf:form id="modifyCommentForm" method="put">
-		<input type="hidden" name="_method" value="PUT" />
 		<input type="hidden" name="content" />
 	</sf:form>
 </div>
